@@ -1,0 +1,53 @@
+<title>Login</title>
+
+<div class="banner-auth">
+    <div class="register d-flex-100">
+        <form class="d-flex-center" id="form-register" method="POST" action="/vault/register">
+            <div class="form-control d-flex-center">
+                <input required placeholder="Seu nome..." type="text" name="name" id="name">
+            </div>
+            <div class="form-control d-flex-center">
+                <input required placeholder="Seu usuário..." type="text" name="user" id="user">
+            </div>
+            <div class="form-control d-flex-center">
+                <input required placeholder="Sua senha..."  type="password" name="password" id="password">
+            </div>
+            <div class="form-control d-flex-center">
+                <input required placeholder="Confirme sua senha..." type="password" name="confirm-password" id="confirm-password">
+            </div>
+
+            <input type="submit" value="Cadastrar">
+
+            <div class="login-span">
+                <span>Ja tem cadastro? <a href="/vault/login">Entrar</a></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const formRegister = document.getElementById("form-register")
+    const inputPassword = document.getElementById("password")
+    const inputConfirmPassword = document.getElementById("confirm-password")
+
+    formRegister.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let password = inputPassword.value
+        let confirmPassword = inputConfirmPassword.value
+
+        if(password !== confirmPassword){
+            inputPassword.style.setProperty("border-color","red")
+            inputConfirmPassword.style.setProperty("border-color","red")
+            alert("Senhas não conferem!")
+
+            setTimeout(() => {
+                inputPassword.style.setProperty("border-color","#fff")
+                inputConfirmPassword.style.setProperty("border-color","#fff")
+            },3000)
+            
+            return;
+        }
+
+    })
+
+</script>
