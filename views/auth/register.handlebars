@@ -1,5 +1,4 @@
-<title>Login</title>
-
+<title>Cadastrar</title>
 <div class="banner-auth">
     <div class="register d-flex-100">
         <form class="d-flex-center" id="form-register" method="POST" action="/vault/register">
@@ -7,13 +6,13 @@
                 <input required placeholder="Seu nome..." type="text" name="name" id="name">
             </div>
             <div class="form-control d-flex-center">
-                <input required placeholder="Seu usuário..." type="text" name="user" id="user">
+                <input required placeholder="Seu email..." type="email" name="email" id="email">
             </div>
             <div class="form-control d-flex-center">
                 <input required placeholder="Sua senha..."  type="password" name="password" id="password">
             </div>
             <div class="form-control d-flex-center">
-                <input required placeholder="Confirme sua senha..." type="password" name="confirm-password" id="confirm-password">
+                <input required placeholder="Confirme sua senha..." type="password" name="confirm_password" id="confirm-password">
             </div>
 
             <input type="submit" value="Cadastrar">
@@ -27,27 +26,63 @@
 
 <script>
     const formRegister = document.getElementById("form-register")
+    const inputName = document.getElementById("name")
     const inputPassword = document.getElementById("password")
     const inputConfirmPassword = document.getElementById("confirm-password")
 
+    const styleInput = (input,color) => {
+        input.style.setProperty("border-color",color)
+        input.style.setProperty("border-color",color)
+    }
+
+    const resetaInput = (input) => {
+        styleInput(input,'#fff')
+    }
+
+    const validateName = (name) => {
+        let arrName = name.split(" ");
+        console.log(arrName)
+
+        if(arrName.length < 2){
+            console.log("48")
+            return false;
+
+        }
+
+        return true
+    }
+
     formRegister.addEventListener("submit", (e) => {
         e.preventDefault();
+        let name = inputName.value
         let password = inputPassword.value
         let confirmPassword = inputConfirmPassword.value
 
+        if(!validateName(name)){
+            alert("Coloque pelo menos um sobrenome!")
+            styleInput(inputName,"red")
+
+            setTimeout(() => {
+                resetaInput(inputName)
+            },3000)
+
+            return;
+        }
+
         if(password !== confirmPassword){
-            inputPassword.style.setProperty("border-color","red")
-            inputConfirmPassword.style.setProperty("border-color","red")
+            styleInput(inputPassword,'red')
+            styleInput(inputConfirmPassword,'red')
             alert("Senhas não conferem!")
 
             setTimeout(() => {
-                inputPassword.style.setProperty("border-color","#fff")
-                inputConfirmPassword.style.setProperty("border-color","#fff")
+                resetaInput(inputPassword)
+                resetaInput(inputConfirmPassword)
             },3000)
             
             return;
         }
 
+        formRegister.submit();
     })
 
 </script>
