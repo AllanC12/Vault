@@ -5,9 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vault</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-    {{{body}}}
+    <div class="container">
 
+            {{#if messages.message}}
+                <div class="flash-message">
+                        <p>{{messages.message}}</p>
+                </div>
+            {{/if}}
+       {{{body}}}
+    <footer class="d-flex-center">
+        <p>Todos os direitos reservados <span>&copy 2025</span></p>
+    </footer>
+    </div>
 </body>
 </html>

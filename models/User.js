@@ -9,7 +9,7 @@ const User = db.define("User", {
     type: DataTypes.STRING,
     required: true,
   },
-  user: {
+  email: {
     type: DataTypes.STRING,
     required: true,
   },
