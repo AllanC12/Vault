@@ -17,6 +17,8 @@ const conn = require("./db/conn");
 //models
 const User = require("./models/User");
 const Accounts = require("./models/Accounts");
+const Expenses = require("./models/Expenses");
+const Revenues = require("./models/Revenues");
 
 app.engine("handlebars", exphbs.engine());
 app.set("view engine", "handlebars");
