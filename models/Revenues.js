@@ -4,7 +4,7 @@ const User = require("../models/User");
 
 const Revenue = db.define("Revenue", {
   value: {
-    type: DataTypes.DECIMAL(20, 2),
+    type: DataTypes.FLOAT,
     allowNull: false,
   },
   description: {

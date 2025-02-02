@@ -66,7 +66,7 @@ app.use("/vault/home", homeRoutes);
 app.use("/vault", authRoutes);
 app.use("/", AuthController.login);
 
-conn.sync({ alter: true }).then(() => {
+conn.sync({ forced: true }).then(() => {
   app.listen(port, () => {
     console.log(`app running on port ${port}`);
     console.log("database connected");

@@ -2,7 +2,7 @@
   <nav class="menu-desktop">
     <ul class="d-flex">
       <li>
-        <a href="">
+        <a href="" id="btn-open-modal">
           <i class="bi bi-cash-coin"></i>
           Conta
         </a>
@@ -28,3 +28,22 @@
     </ul>
   </nav>
 </header>
+
+<div id="modal-account" class="modal-account d-flex-center" >
+  <div class="modal" >
+
+     <i id="btn-close-modal" class="bi bi-x btn-close-modal"></i>
+
+    <form action="" class="" data-aos="fade-left" data-aos-duration="1000">
+      <div class="form-control">
+        <label for="">Saldo disponível:</label>
+        <input type="number"  />
+      </div>
+      <div class="form-control">
+        <label for="">Senha:</label>
+        <input type="password" name="password" id="password" >
+      </div>
+      <input type="submit" value="Editar">
+    </form>
+  </div>
+</div>
