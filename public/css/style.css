@@ -111,9 +111,6 @@ input[type="submit"]{
     cursor: pointer;
 }
 
-.modal-account label{
-
-}
 
 input[type="submit"]:hover{
     background-color: rgb(79, 141, 9);
