@@ -64,7 +64,7 @@ module.exports = class AuthController {
       req.session.userId = newUser.userId;
 
       req.session.save(() => {
-        res.redirect("/vault/home");
+        res.redirect("/home");
       });
     } catch (error) {
       console.error(error);
