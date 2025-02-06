@@ -1,4 +1,7 @@
 <header class="d-flex">
+  <div class="balance-area">
+    <p>Saldo: <span id="balance-value">{{balance}}</span></p>
+  </div>
   <nav class="menu-desktop">
     <ul class="d-flex">
       <li>
@@ -29,6 +32,11 @@
   </nav>
 </header>
 
+<div class="main-wrapper">
+  <div class="wrapper-expenses-revenues content-home"></div>
+  <div class="wrapper-graphic  content-home"></div>
+</div>
+
 <div id="modal-account" class="modal-account d-flex-center" >
   <div class="modal" >
 
@@ -37,7 +45,7 @@
     <form action="/vault/home/editBalance" method="POST" class="">
       <div class="form-control">
         <label for="">Saldo disponível:</label>
-        <input type="number"  />
+        <input min="0" type="number" name="balance"/>
       </div>
       <div class="form-control">
         <label for="">Senha:</label>
@@ -47,3 +55,4 @@
     </form>
   </div>
 </div>
+

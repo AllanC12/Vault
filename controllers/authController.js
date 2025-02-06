@@ -25,7 +25,7 @@ module.exports = class AuthController {
       return;
     }
 
-    req.session.userId = user.id;
+    req.session.userid = user.id;
     req.session.save(() => {
       res.redirect("/vault/home");
     });
@@ -60,8 +60,8 @@ module.exports = class AuthController {
     };
 
     try {
-      await User.create(newUser);
-      req.session.userId = newUser.userId;
+      const createdUser = await User.create(newUser);
+      req.session.userid = createdUser.userId;
 
       req.session.save(() => {
         res.redirect("/home");
