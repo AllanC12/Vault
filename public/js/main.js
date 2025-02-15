@@ -5,9 +5,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const balanceElement = document.getElementById("balance-value");
 
+  const formExpenseRevenue = document.getElementById("form-expenses-revenues");
+  const btnRegisterExpnesesRevenue = document.getElementById("btn-register-expenses-revenues");
+  const descriptionExpenseRevenue = document.getElementById("description-expenses-revenues" );
+  const valueExpenseRevenue = document.getElementById( "value-expenses-revenues" );
+  const checkRevenue = document.getElementById("check-revenues");
+  const checExpense = document.getElementById("check-expenses");
+
   const formatBalance = () => {
     const balance = balanceElement.innerText;
-    const balanceInt = parseInt(balance);
+    let balanceInt = parseInt(balance);
+    if (balance.trim() === "") balanceInt = 0;
 
     balanceElement.innerText = balanceInt.toLocaleString("pt-BR", {
       minimumIntegerDigits: 2,
@@ -26,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     modal.style.setProperty("display", "flex");
+    modal.style.setProperty("z-index", "999");
     setTimeout(() => {
       modal.style.setProperty("opacity", 1);
     }, 50);
@@ -35,9 +44,12 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     handleModal("show");
   });
+
   btnCloseModal.addEventListener("click", () => {
     handleModal("hide");
   });
+
+  formExpenseRevenue.addEventListener("submit", (e) => {});
 
   handleModal("hide");
   formatBalance();

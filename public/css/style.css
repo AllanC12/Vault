@@ -191,6 +191,7 @@ header{
     height: 100%;
     background-color: rgba(37, 37, 37, 0.6);
     transition: .5s;
+    z-index: 999;
 }
 
 .modal-account form{   
@@ -230,4 +231,31 @@ header{
     border-radius: 4px;
     padding: 1%;
 }
+
+/***********************************************************************************************************/
+#form-expenses-revenues{
+    height: 30%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#form-expenses-revenues > input[type="text"], #form-expenses-revenues > input[type="number"]{
+    font-size: 16px;
+    outline: 0;
+    padding: 5px;
+    width: 75%;
+}
+
+.form-control-expenses-revenues{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 10px;
+    width: 75%;
+}
+
 

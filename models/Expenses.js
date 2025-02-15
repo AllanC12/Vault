@@ -15,3 +15,5 @@ const Expense = db.define("Expense", {
 
 User.hasMany(Expense);
 Expense.belongsTo(User);
+
+module.exports = Expense;

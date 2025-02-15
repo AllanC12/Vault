@@ -33,7 +33,27 @@
 </header>
 
 <div class="main-wrapper">
-  <div class="wrapper-expenses-revenues content-home"></div>
+  <div class="wrapper-expenses-revenues content-home ">
+    <form id="form-expenses-revenues" action="/vault/home/registerExpenseRevenue" method="POST">
+      <input required type="text" name="description" id="description-expenses-revenues" placeholder="Descrição do gasto...">
+      <input required type="number" name="value" id="value-expenses-revenues" placeholder="Valor do gasto...">
+
+       <div class="form-control-expenses-revenues">
+        <input type="radio" id="check-revenues" name="choices" value="revenues" checked>
+        <label for="revenues">Receita</label>  
+       </div>
+
+       <div class="form-control-expenses-revenues">
+        <input type="radio" id="check-expenses" name="choices" value="expenses" >
+        <label for="expenses">Despesa</label>
+       </div>
+
+      <input type="submit" id="btn-register-expenses-revenues" value="Cadastrar">
+    </form>
+
+    
+  </div>
+
   <div class="wrapper-graphic  content-home"></div>
 </div>
 

@@ -15,3 +15,5 @@ const Revenue = db.define("Revenue", {
 
 User.hasMany(Revenue);
 Revenue.belongsTo(User);
+
+module.exports = Revenue;
