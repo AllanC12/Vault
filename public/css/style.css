@@ -113,14 +113,14 @@ button[type="submit"]{
     transition: .5s;
     padding: 5px;
     color: #fff;
-    background-color: rgb(72, 124, 12);
+    background-color: rgb(247, 94, 94);
     border: 1px solid #fff;
     border-radius: 4px;
     cursor: pointer;
 }
 
 
-button[type="submit"]:hover,input[type="submit"]:hover{
+input[type="submit"]:hover{
     background-color: rgb(79, 141, 9);
 
 }
@@ -154,7 +154,7 @@ header{
     width: 100%;
     height: 8vh;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     background-color: rgba(50, 87, 8, 0.9);
     padding: 1%;
     border-bottom: 1px solid #fff;
@@ -185,41 +185,6 @@ header{
 }
 
 
-/*******************************************************************************************************/
-
-.btn-close-modal{
-    position: absolute;
-    top: 30px;
-    right: 10px;
-    color: #fff;
-    font-size: 50px;
-    cursor: pointer;
-}
-.modal-account{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(37, 37, 37, 0.6);
-    transition: .5s;
-    z-index: 999;
-}
-
-.modal-account form{   
-    background-color: rgba(39, 68, 6, 0.9);
-    border: 1px solid #fff;
-    border-radius: 4px;
-    padding: 4%;
-}
-
-.modal-account .form-control{
-    margin-bottom: 2em;
-}
-
-.modal-account input[type="submit"]{
-   display: block;
-   margin: 0 auto;
-}
-
 
 /************************************************************************************************************/
 .main-wrapper{
@@ -236,11 +201,13 @@ header{
 .content-home{
     width: 100%;
     height: 90%;
-    background-color: rgba(220, 247, 188, 0.9);
+    background-color: rgba(246, 252, 240, 0.9);
     border: 1px solid #fff;
     border-radius: 4px;
     padding: 1%;
 }
+
+
 
 /***********************************************************************************************************/
 #form-expenses-revenues{
@@ -283,16 +250,21 @@ header{
     align-items: center;
     padding: 2%;
     margin-bottom: 10px;
+    gap: 10px;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.wrapper-value-form{
+    gap: 10px;
 }
 
 .expense-item{
-    border-left: 4px solid rgb(255, 0, 0);
-    border-right: 4px solid rgb(255, 0, 0);
+    background-color: rgb(255, 0, 0);
 }
 
 .revenues-item{
-    border-left: 4px solid rgb(5, 105, 5);
-    border-right: 4px solid rgb(5, 105, 5);
+    background-color: rgb(5, 105, 5);
 
 }
 

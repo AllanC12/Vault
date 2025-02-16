@@ -1,33 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const btnCloseModal = document.getElementById("btn-close-modal");
-  const modal = document.getElementById("modal-account");
-  const btnOpenModal = document.getElementById("btn-open-modal");
 
   const balanceElement = document.getElementById("balance-value");
 
-  const formExpenseRevenue = document.getElementById("form-expenses-revenues");
-  const btnRegisterExpnesesRevenue = document.getElementById(
-    "btn-register-expenses-revenues"
-  );
-  const descriptionExpenseRevenue = document.getElementById(
-    "description-expenses-revenues"
-  );
-  const valueExpenseRevenue = document.getElementById(
-    "value-expenses-revenues"
-  );
-  const checkRevenue = document.getElementById("check-revenues");
-  const checExpense = document.getElementById("check-expenses");
-  const revenueDescription = document.querySelectorAll(".revenue-description");
   const allValueExpensesRevenues = document.querySelectorAll(".value");
   const revenueValue = document.querySelectorAll(".revenue-value");
   const expenseValue = document.querySelectorAll(".expense-value");
 
-  const formatValues = () => {
-    const balance = balanceElement.innerText;
-    let balanceInt = parseInt(balance);
-    if (balance.trim() === "") balanceInt = 0;
+  const graphicElement = document.getElementById("myChart");
+  let difference = 0;
 
-    balanceElement.innerText = balanceInt.toLocaleString("pt-BR", {
+  const formatValues = () => {
+    balanceElement.innerText = difference.toLocaleString("pt-BR", {
       minimumIntegerDigits: 2,
       style: "currency",
       currency: "BRL",
@@ -44,33 +27,66 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  const handleModal = (order) => {
-    if (order === "hide") {
-      modal.style.setProperty("opacity", 0);
-      setTimeout(() => {
-        modal.style.setProperty("display", "none");
-      }, 50);
-      return;
-    }
+  const sumValues = () => {
+    let sumRevenues = 0;
+    let sumExpenses = 0;
 
-    modal.style.setProperty("display", "flex");
-    modal.style.setProperty("z-index", "999");
-    setTimeout(() => {
-      modal.style.setProperty("opacity", 1);
-    }, 50);
+    revenueValue.forEach((value) => {
+      const valueInt = parseFloat(
+        value.innerText
+          .replace("R$", "")
+          .trim()
+      );
+
+      sumRevenues += valueInt;
+    });
+
+    expenseValue.forEach((value) => {
+      const valueInt = parseFloat(
+        value.innerText
+        .replace("R$", "")      
+          .trim()
+      );
+      sumExpenses += valueInt;
+    });
+
+    difference = sumRevenues - sumExpenses;
+
+
+    return [sumRevenues, sumExpenses, difference];
   };
 
-  btnOpenModal.addEventListener("click", (e) => {
-    e.preventDefault();
-    handleModal("show");
-  });
+  const renderGraphic = () => {
+    new Chart(graphicElement, {
+      type: "bar",
+      data: {
+        labels: ["", "", ""],
+        datasets: [
+          {
+            label: "Receitas",
+            data: [sumValues()[0]],
+            borderWidth: 1,
+            backgroundColor: ["rgba(69, 235, 54, 0.6)"],
+          },
+          {
+            label: "Despesas",
+            data: [sumValues()[1]],
+            borderWidth: 1,
+            backgroundColor: ["rgba(250, 3, 57, 0.6)"],
+          },
+          {
+            label: "Diferença",
+            data: [sumValues()[2]],
+            borderWidth: 1,
+            backgroundColor: ["rgba(42, 61, 238, 0.6)"],
+          },
+        ],
+      },
+    });
+  };
 
-  btnCloseModal.addEventListener("click", () => {
-    handleModal("hide");
-  });
 
-  formExpenseRevenue.addEventListener("submit", (e) => {});
-
-  handleModal("hide");
+  sumValues();
+  renderGraphic();
   formatValues();
 });
