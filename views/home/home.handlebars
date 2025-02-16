@@ -50,7 +50,37 @@
 
       <input type="submit" id="btn-register-expenses-revenues" value="Cadastrar">
     </form>
+   <div class="revenuesExpensesList d-flex-center">
+     <div class="div-revenues">
+      {{#each revenues}}
+        <div class="revenues-item d-flex">
+            <h4 class="revenue-description">{{description}}</h4>
+            <h4 class="revenue-value value">{{value}}</h4>
+            <form method="POST" action="/vault/home/deleteRevenue" class="form-delete-revenue">
+              <input type="hidden" name="id" value="{{id}}">
+              <button title="Excluir registro" class="btn-delete-revenue" type="submit">
+                <i class="bi bi-trash"></i>
+              </button>
+            </form>
+        </div>
+      {{/each}}
+     </div>
+      <div class="div-expenses">
+       {{#each expenses}}
+        <div class="expense-item d-flex">
+            <h4 class="expense-description">{{description}}</h4>
+            <h4 class="expense-value value">{{value}}</h4>
+             <form method="POST" action="/vault/home/deleteExpense" class="form-delete-expense">
+              <input type="hidden" name="id" value="{{id}}">
+              <button title="Excluir registro" class="btn-delete-expense" type="submit">
+                <i class="bi bi-trash"></i>
+              </button>
+            </form>
+        </div>
+      {{/each}}
 
+      </div>
+   </div>
     
   </div>
 
