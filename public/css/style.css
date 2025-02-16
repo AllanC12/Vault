@@ -109,8 +109,18 @@ input[type="submit"]{
     cursor: pointer;
 }
 
+button[type="submit"]{
+    transition: .5s;
+    padding: 5px;
+    color: #fff;
+    background-color: rgb(72, 124, 12);
+    border: 1px solid #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-input[type="submit"]:hover{
+
+button[type="submit"]:hover,input[type="submit"]:hover{
     background-color: rgb(79, 141, 9);
 
 }
@@ -257,5 +267,32 @@ header{
     gap: 10px;
     width: 75%;
 }
+.revenuesExpensesList{
+    gap: 2%;
+}
 
+.div-revenues, .div-expenses{
+    margin-top: 15px;
+    width: 50%;
+    min-height: 200px;;
+}
+
+
+.revenues-item, .expense-item{
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+    margin-bottom: 10px;
+}
+
+.expense-item{
+    border-left: 4px solid rgb(255, 0, 0);
+    border-right: 4px solid rgb(255, 0, 0);
+}
+
+.revenues-item{
+    border-left: 4px solid rgb(5, 105, 5);
+    border-right: 4px solid rgb(5, 105, 5);
+
+}
 
