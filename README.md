@@ -1,7 +1,6 @@
 ## Vault
 
-* Um sistema onde você pode controlar a relação entre as suas receitas e as suas despesas para nunca perder o controle da sua vida financeira. Você terá a soma de ambos (Receitas e Despesas)
-* em um gráfico para ter uma dimensão visual de como o seu dinheiro está sendo utilizado.
+* Um sistema onde você pode controlar a relação entre as suas receitas e as suas despesas para nunca perder o controle da sua vida financeira. Você terá a soma de ambos (Receitas e Despesas) em um gráfico para ter uma dimensão visual de como o seu dinheiro está sendo utilizado.
 
 ## Conceitos e tech utilizadas
 
