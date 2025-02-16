@@ -1,27 +1,9 @@
 <header class="d-flex">
-  <div class="balance-area">
-    <p>Saldo: <span id="balance-value">{{balance}}</span></p>
-  </div>
   <nav class="menu-desktop">
     <ul class="d-flex">
-      <li>
-        <a href="" id="btn-open-modal">
-          <i class="bi bi-cash-coin"></i>
-          Conta
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <i class="bi bi-graph-up-arrow"></i>
-          Receitas
-        </a>
-      </li>
-      <li>
-        <a href="">
-          <i class="bi bi-graph-down-arrow"></i>
-          Despesas
-        </a>
-      </li>
+      <div class="balance-area">
+        <p>Saldo: <span id="balance-value">{{balance}}</span></p>
+      </div>
       <li>
         <a href="/">
           <i class="bi bi-box-arrow-right"></i>
@@ -33,76 +15,112 @@
 </header>
 
 <div class="main-wrapper">
-  <div class="wrapper-expenses-revenues content-home ">
-    <form id="form-expenses-revenues" action="/vault/home/registerExpenseRevenue" method="POST">
-      <input required type="text" name="description" id="description-expenses-revenues" placeholder="Descrição do gasto...">
-      <input required type="number" name="value" id="value-expenses-revenues" placeholder="Valor do gasto...">
+  <div class="wrapper-expenses-revenues content-home">
+    <form
+      id="form-expenses-revenues"
+      action="/vault/home/registerExpenseRevenue"
+      method="POST"
+    >
+      <input
+        required
+        type="text"
+        name="description"
+        id="description-expenses-revenues"
+        placeholder="Descrição do gasto..."
+      />
+      <input
+        required
+        type="number"
+        name="value"
+        id="value-expenses-revenues"
+        placeholder="Valor do gasto..."
+      />
 
-       <div class="form-control-expenses-revenues">
-        <input type="radio" id="check-revenues" name="choices" value="revenues" checked>
-        <label for="revenues">Receita</label>  
-       </div>
+      <div class="form-control-expenses-revenues">
+        <input
+          type="radio"
+          id="check-revenues"
+          name="choices"
+          value="revenues"
+          checked
+        />
+        <label for="revenues">Receita</label>
+      </div>
 
-       <div class="form-control-expenses-revenues">
-        <input type="radio" id="check-expenses" name="choices" value="expenses" >
+      <div class="form-control-expenses-revenues">
+        <input
+          type="radio"
+          id="check-expenses"
+          name="choices"
+          value="expenses"
+        />
         <label for="expenses">Despesa</label>
-       </div>
+      </div>
 
-      <input type="submit" id="btn-register-expenses-revenues" value="Cadastrar">
+      <input
+        type="submit"
+        id="btn-register-expenses-revenues"
+        value="Cadastrar"
+      />
     </form>
-   <div class="revenuesExpensesList d-flex-center">
-     <div class="div-revenues">
-      {{#each revenues}}
-        <div class="revenues-item d-flex">
+    <div class="revenuesExpensesList d-flex-center">
+      <div class="div-revenues">
+        {{#each revenues}}
+          <div class="revenues-item d-flex">
             <h4 class="revenue-description">{{description}}</h4>
-            <h4 class="revenue-value value">{{value}}</h4>
-            <form method="POST" action="/vault/home/deleteRevenue" class="form-delete-revenue">
-              <input type="hidden" name="id" value="{{id}}">
-              <button title="Excluir registro" class="btn-delete-revenue" type="submit">
-                <i class="bi bi-trash"></i>
-              </button>
-            </form>
-        </div>
-      {{/each}}
-     </div>
+            <div class="wrapper-value-form d-flex-center">
+              <h4 class="revenue-value value">{{value}}</h4>
+              <form
+                method="POST"
+                action="/vault/home/deleteRevenue"
+                class="form-delete-revenue"
+              >
+                <input type="hidden" name="id" value="{{id}}" />
+                <button
+                  title="Excluir registro"
+                  class="btn-delete-revenue"
+                  type="submit"
+                >
+                  <i class="bi bi-trash"></i>
+                </button>
+              </form>
+            </div>
+
+          </div>
+        {{/each}}
+      </div>
       <div class="div-expenses">
-       {{#each expenses}}
-        <div class="expense-item d-flex">
+        {{#each expenses}}
+          <div class="expense-item d-flex">
             <h4 class="expense-description">{{description}}</h4>
-            <h4 class="expense-value value">{{value}}</h4>
-             <form method="POST" action="/vault/home/deleteExpense" class="form-delete-expense">
-              <input type="hidden" name="id" value="{{id}}">
-              <button title="Excluir registro" class="btn-delete-expense" type="submit">
-                <i class="bi bi-trash"></i>
-              </button>
-            </form>
-        </div>
-      {{/each}}
+            <div class="wrapper-value-form d-flex-center">
+              <h4 class="expense-value value">{{value}}</h4>
+              <form
+                method="POST"
+                action="/vault/home/deleteExpense"
+                class="form-delete-expense"
+              >
+                <input type="hidden" name="id" value="{{id}}" />
+                <button
+                  title="Excluir registro"
+                  class="btn-delete-expense"
+                  type="submit"
+                >
+                  <i class="bi bi-trash"></i>
+                </button>
+              </form>
+            </div>
+
+          </div>
+        {{/each}}
 
       </div>
-   </div>
-    
+    </div>
+
   </div>
 
-  <div class="wrapper-graphic  content-home"></div>
-</div>
-
-<div id="modal-account" class="modal-account d-flex-center" >
-  <div class="modal" >
-
-     <i id="btn-close-modal" class="bi bi-x btn-close-modal"></i>
-
-    <form action="/vault/home/editBalance" method="POST" class="">
-      <div class="form-control">
-        <label for="">Saldo disponível:</label>
-        <input min="0" type="number" name="balance"/>
-      </div>
-      <div class="form-control">
-        <label for="">Senha:</label>
-        <input type="password" name="password" id="password" >
-      </div>
-      <input type="submit" value="Editar">
-    </form>
+  <div class="wrapper-graphic content-home">
+    <canvas id="myChart" style="width: 400px; height: 400px;"></canvas>
   </div>
-</div>
 
+</div>
