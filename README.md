@@ -6,6 +6,7 @@
 
 * Node.js
 * Javascript
+* Handlebars
 * Chart.js
 * CSS
 * Arquitetura MVC
